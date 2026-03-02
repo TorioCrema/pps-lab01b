@@ -4,18 +4,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class SilverBankAccountTest extends BankAccountTest {
+public class GoldBankAccountTest extends BankAccountTest {
 
-    @BeforeEach
     @Override
+    @BeforeEach
     void init() {
-        this.account = new SilverBankAccount(new CoreBankAccount(), new SilverFee());
+        super.account = new GoldBankAccount(new CoreBankAccount(), new GoldFee());
     }
 
     @Override
     protected int getExpectedFee() {
-        return 1;
+        return 0;
     }
 }
