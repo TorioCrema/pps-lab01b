@@ -1,19 +1,18 @@
 package it.unibo.pps.e1;
 
-import it.unibo.pps.e1.BankAccount;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class BankAccountTest {
+public class SilverBankAccountTest {
 
     private BankAccount account;
 
     @BeforeEach
-    void init(){
-        this.account = new BankAccount();
+    void init() {
+        this.account = new SilverBankAccount(new CoreBankAccount());
     }
 
     @Test
@@ -35,7 +34,7 @@ public class BankAccountTest {
     }
 
     @Test
-    public void testCannotWithdrawMoreThanAvailable(){
+    public void testCannotWithdrawMoreThanAvailable() {
         this.account.deposit(1000);
         assertThrows(IllegalStateException.class, () -> this.account.withdraw(1200));
     }
