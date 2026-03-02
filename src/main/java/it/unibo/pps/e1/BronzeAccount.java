@@ -1,11 +1,10 @@
 package it.unibo.pps.e1;
 
-public class GoldBankAccount implements BankAccount {
+public class BronzeAccount implements BankAccount {
+    private final BankAccount base;
+    private final Fee fee;
 
-    final private BankAccount base;
-    final private Fee fee;
-
-    public GoldBankAccount(final BankAccount base, final Fee fee) {
+    public BronzeAccount(final BankAccount base, final Fee fee) {
         this.base = base;
         this.fee = fee;
     }
@@ -22,8 +21,8 @@ public class GoldBankAccount implements BankAccount {
 
     @Override
     public void withdraw(int amount) {
-        if (this.base.getBalance() - amount - this.fee.calculateFee(amount) < -500) {
-            throw new IllegalStateException("Cannot draw below -500.");
+        if (this.base.getBalance() - amount - this.fee.calculateFee(amount) < 0) {
+            throw new IllegalStateException("Cannot draw more that available balance.");
         }
         this.base.withdraw(amount + this.fee.calculateFee(amount));
     }

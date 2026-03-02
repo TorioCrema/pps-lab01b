@@ -1,8 +1,8 @@
 package it.unibo.pps.e1;
 
-public class SilverFee implements Fee{
+public class BronzeFee implements Fee {
     @Override
     public int calculateFee(final int withdrawAmount) {
-        return 1;
+        return withdrawAmount > 100 ? 1 : 0;
     }
 }

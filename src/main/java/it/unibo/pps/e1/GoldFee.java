@@ -1,8 +1,8 @@
 package it.unibo.pps.e1;
 
-public class GoldFee implements Fee{
+public class GoldFee implements Fee {
     @Override
-    public int calculateFee() {
+    public int calculateFee(final int withdrawAmount) {
         return 0;
     }
 }

@@ -28,10 +28,10 @@ public abstract class BankAccountTest {
 
     @Test
     public void testCanWithdraw() {
-        final int withDrawAmount = 200;
+        final int withdrawAmount = 200;
         this.account.deposit(this.amount);
-        this.account.withdraw(withDrawAmount);
-        assertEquals(this.amount - withDrawAmount - this.getExpectedFee(), this.account.getBalance());
+        this.account.withdraw(withdrawAmount);
+        assertEquals(this.amount - withdrawAmount - this.getExpectedFee(withdrawAmount), this.account.getBalance());
     }
 
     @Test
@@ -42,7 +42,7 @@ public abstract class BankAccountTest {
 
     protected abstract BankAccount getAccount();
 
-    protected abstract int getExpectedFee();
+    protected abstract int getExpectedFee(final int withdrawAmount);
 
     protected abstract int getOverdrawAmount();
 }
