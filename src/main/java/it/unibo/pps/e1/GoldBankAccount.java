@@ -22,6 +22,9 @@ public class GoldBankAccount implements BankAccount {
 
     @Override
     public void withdraw(int amount) {
+        if (this.base.getBalance() - amount - this.fee.calculateFee() < -500) {
+            throw new IllegalStateException("Cannot draw below -500.");
+        }
         this.base.withdraw(amount + this.fee.calculateFee());
     }
 }
