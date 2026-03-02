@@ -7,5 +7,5 @@ public interface Fee {
      *
      * @return the fee.
      */
-    public int calculateFee(final int withdrawAmount);
+    int calculateFee(final int withdrawAmount);
 }
