@@ -13,7 +13,7 @@ public class KnightTest {
     @BeforeEach
     public void init() {
         this.initialPosition = new Pair<>(2, 3);
-        this.knight = new Knight(this.initialPosition);
+        this.knight = new KnightImpl(this.initialPosition);
     }
 
     @Test

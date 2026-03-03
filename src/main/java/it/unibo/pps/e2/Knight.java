@@ -1,26 +1,27 @@
 package it.unibo.pps.e2;
 
-public class Knight {
-    private Pair<Integer, Integer> position;
+public interface Knight {
 
-    public Knight(final Pair<Integer, Integer> startPosition) {
-        this.position = startPosition;
-    }
+    /**
+     * Returns a safe copy of the knight's current position.
+     * @return The knight's position.
+     */
+    Pair<Integer, Integer> getPosition();
 
-    public Pair<Integer, Integer> getPosition() {
-        return new Pair<>(this.position.getX(), this.position.getY());
-    }
+    /**
+     * Returns true is the move is valid in reference to the
+     * knight's current position, false otherwise.
+     * @param move the move that will be tested for validity.
+     * @return true if the move is valid, false otherwise
+     */
+    boolean isValid(Pair<Integer, Integer> move);
 
-    public boolean isValid(final Pair<Integer, Integer> move) {
-        int x = move.getX() - this.position.getX();
-        int y = move.getY() - this.position.getY();
-        return x != 0 && y != 0 && Math.abs(x) + Math.abs(y) == 3;
-    }
-
-    public void move(final Pair<Integer, Integer> position) {
-        if (!this.isValid(position)) {
-            throw new IllegalArgumentException();
-        }
-        this.position = new Pair<>(position.getX(), position.getY());
-    }
+    /**
+     * Moves the knight to the given position if
+     * said position is valid, otherwise throws an
+     * exception.
+     * @param position the position to move the knight to.
+     * @throws IllegalArgumentException if the move isn't valid.
+     */
+    void move(Pair<Integer, Integer> position);
 }
