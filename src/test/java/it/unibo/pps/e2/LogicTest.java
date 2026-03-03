@@ -13,7 +13,7 @@ public class LogicTest {
     public void init() {
         this.pawnPosition = new Pair<>(3, 2);
         this.knightPosition = new Pair<>(4, 4);
-        this.logic = new LogicsImpl(10, this.pawnPosition, this.knightPosition);
+        this.logic = new LogicsImpl(10, this.pawnPosition, new KnightImpl(this.knightPosition));
     }
 
     @Test

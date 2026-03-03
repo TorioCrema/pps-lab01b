@@ -16,10 +16,10 @@ public class LogicsImpl implements Logics {
     }
 
 	public LogicsImpl(final int size, final Pair<Integer, Integer> pawnPosition,
-					  final Pair<Integer, Integer> knightPosition) {
+					  final Knight knight) {
 		this.size = size;
 		this.pawn = pawnPosition;
-		this.knight = new KnightImpl(knightPosition);
+		this.knight = knight;
 	}
     
 	private final Pair<Integer,Integer> randomEmptyPosition(){
