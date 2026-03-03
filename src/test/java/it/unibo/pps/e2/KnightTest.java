@@ -32,4 +32,17 @@ public class KnightTest {
         final Pair<Integer, Integer> invalidMove = new Pair<>(2, 2);
         assertFalse(this.knight.isValid(invalidMove));
     }
+
+    @Test
+    public void testMovesOnValidMove() {
+        final Pair<Integer, Integer> validMove = new Pair<>(4, 4);
+        this.knight.move(validMove);
+        assertEquals(validMove, this.knight.getPosition());
+    }
+
+    @Test
+    public void testMoveThrowsOnInvalidMove() {
+        final Pair<Integer, Integer> invalidMove = new Pair<>(2, 2);
+        assertThrows(IllegalArgumentException.class, () -> this.knight.move(invalidMove));
+    }
 }

@@ -16,4 +16,11 @@ public class Knight {
         int y = move.getY() - this.position.getY();
         return x != 0 && y != 0 && Math.abs(x) + Math.abs(y) == 3;
     }
+
+    public void move(final Pair<Integer, Integer> position) {
+        if (!this.isValid(position)) {
+            throw new IllegalArgumentException();
+        }
+        this.position = new Pair<>(position.getX(), position.getY());
+    }
 }
