@@ -18,10 +18,8 @@ public interface Knight {
 
     /**
      * Moves the knight to the given position if
-     * said position is valid, otherwise throws an
-     * exception.
+     * said position is valid.
      * @param position the position to move the knight to.
-     * @throws IllegalArgumentException if the move isn't valid.
      */
     void move(Pair<Integer, Integer> position);
 }

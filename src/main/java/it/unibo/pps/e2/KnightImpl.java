@@ -18,9 +18,8 @@ public class KnightImpl implements Knight {
     }
 
     public void move(Pair<Integer, Integer> position) {
-        if (!this.isValid(position)) {
-            throw new IllegalArgumentException();
+        if (this.isValid(position)) {
+            this.position = new Pair<>(position.getX(), position.getY());
         }
-        this.position = new Pair<>(position.getX(), position.getY());
     }
 }

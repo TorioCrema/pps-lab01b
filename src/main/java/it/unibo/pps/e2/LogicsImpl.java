@@ -30,17 +30,13 @@ public class LogicsImpl implements Logics {
     
 	@Override
 	public boolean hit(int row, int col) {
-		if (row<0 || col<0 || row >= this.size || col >= this.size) {
+		final Pair<Integer, Integer> position = new Pair<>(row, col);
+		if (!this.isInsideBoard(position)) {
 			throw new IndexOutOfBoundsException();
 		}
 
-		final Pair<Integer, Integer> move = new Pair<>(row, col);
-		if (this.knight.isValid(move)) {
-			this.knight.move(move);
-			return this.pawn.equals(this.knight.getPosition());
-		} else {
-			return false;
-		}
+		this.knight.move(position);
+		return this.pawn.equals(this.knight.getPosition());
 	}
 
 	@Override
@@ -52,4 +48,9 @@ public class LogicsImpl implements Logics {
 	public boolean hasPawn(int row, int col) {
 		return this.pawn.equals(new Pair<>(row,col));
 	}
+
+	private boolean isInsideBoard(final Pair<Integer, Integer> position) {
+        return position.getX() >= 0 && position.getY() >= 0
+				&& position.getX() < this.size && position.getY() < this.size;
+    }
 }

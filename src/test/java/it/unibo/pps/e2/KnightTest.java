@@ -42,7 +42,8 @@ public class KnightTest {
     }
 
     @Test
-    public void testMoveThrowsOnInvalidMove() {
-        assertThrows(IllegalArgumentException.class, () -> this.knight.move(invalidMove));
+    public void testMoveDoesNothingOnInvalidMove() {
+        this.knight.move(invalidMove);
+        assertEquals(this.initialPosition, this.knight.getPosition());
     }
 }
